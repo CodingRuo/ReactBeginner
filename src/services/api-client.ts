@@ -24,6 +24,11 @@ class APICLient<T> {
         return $api.get<FetchResponse<T>>(this.endpoint, config)
             .then(({ data }) => data)
     }
+
+    get = (id: string | number) => {
+        return $api.get<T>(this.endpoint + '/' + id)
+            .then(({ data }) => data)
+    }
 }
 
 export default APICLient
